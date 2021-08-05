@@ -20,8 +20,7 @@ const Modal = ({ movie, onClose }) => {
     Country,
     Awards,
   } = movie;
-  //   const {} = movie.Ratings;
-  //   console.log(movie.Ratings);
+
   useEffect(() => {
     window.addEventListener("keydown", handleKeyDownCloseModal);
     return () => {

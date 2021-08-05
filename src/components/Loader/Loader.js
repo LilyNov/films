@@ -12,7 +12,7 @@ export default function ImagePendingView() {
       style={{
         position: "absolute",
         display: "block",
-        top: "50%",
+        top: "60%",
         left: "50%",
         transform: "translate (-50%, -50%)",
         zIndex: 1000,
