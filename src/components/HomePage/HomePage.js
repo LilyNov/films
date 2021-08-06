@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Pagination from "@material-ui/lab/Pagination";
 import { Container } from "@material-ui/core";
 import { getSerchMovies } from "../../redux/movies/movies-selectors";
+
 import getMoviesId from "../../imdb-top250";
 import { getTopMovies } from "../../redux/topMovies/topMovies-operations";
 import TopMoviesPage from "../TopMoviesPage/TopMoviesPage";
@@ -14,6 +15,7 @@ import style from "../HomePage/HomePage.module.css";
 const HomePage = () => {
   const dispatch = useDispatch();
   const moviesSearch = useSelector(getSerchMovies);
+
   const [movies] = useState(getMoviesId);
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(10);
@@ -44,7 +46,7 @@ const HomePage = () => {
           <SearchMoviesPage />
         ) : (
           <>
-            <TopMoviesPage indexOfLastPost={indexOfLastPost} />
+            <TopMoviesPage />
             <div className={style.pagination}>
               <Pagination
                 color="secondary"

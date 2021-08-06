@@ -1,11 +1,11 @@
 import { useSelector } from "react-redux";
-import { getTopMovies } from "../../redux/topMovies/topMovies-selectors";
+import { getAllTopMovies } from "../../redux/topMovies/topMovies-selectors";
 import TopMoviesPageItem from "../TopMoviesPageItem/TopMoviesPageItem";
 import Loader from "../Loader/Loader";
 import style from "../TopMoviesPage/TopMoviesPage.module.css";
 
 const TopMoviesPage = () => {
-  const movies = useSelector(getTopMovies);
+  const movies = useSelector(getAllTopMovies);
 
   return (
     <>

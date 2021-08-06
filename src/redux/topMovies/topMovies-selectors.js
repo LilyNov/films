@@ -1,1 +1,1 @@
-export const getTopMovies = (state) => state.topMovies;
+export const getAllTopMovies = (state) => state.topMovies;
