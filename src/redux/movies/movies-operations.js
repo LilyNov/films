@@ -1,7 +1,7 @@
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-const BASE_URL = "http://www.omdbapi.com/";
+const BASE_URL = "https://www.omdbapi.com/";
 const API_KEY = "a81b612c";
 
 const searchMovies = createAsyncThunk("movie", async ({ movie }, thunkAPI) => {
