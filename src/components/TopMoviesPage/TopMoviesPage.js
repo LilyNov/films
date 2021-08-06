@@ -9,7 +9,7 @@ const TopMoviesPage = () => {
 
   return (
     <>
-      {movies.length === 10 && (
+      {movies && (
         <ul className={style.itemList}>
           {movies.map((movie) => (
             <TopMoviesPageItem key={movie.imdbID} movie={movie} />

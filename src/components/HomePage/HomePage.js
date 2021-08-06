@@ -5,7 +5,7 @@ import Pagination from "@material-ui/lab/Pagination";
 import { Container } from "@material-ui/core";
 import { getSerchMovies } from "../../redux/movies/movies-selectors";
 import getMoviesId from "../../imdb-top250";
-import getTopMovies from "../../redux/topMovies/topMovies-operations";
+import { getTopMovies } from "../../redux/topMovies/topMovies-operations";
 import TopMoviesPage from "../TopMoviesPage/TopMoviesPage";
 import SearchMoviesPage from "../SearchMoviesPage/SearchMoviesPage";
 import Loader from "../Loader/Loader";
@@ -22,9 +22,10 @@ const HomePage = () => {
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = movies.slice(indexOfFirstPost, indexOfLastPost);
+  console.log("currentPosts", currentPosts);
 
   useEffect(() => {
-    dispatch(getTopMovies({ currentPosts }));
+    dispatch(getTopMovies(currentPosts));
   }, [currentPosts, dispatch]);
 
   const onPaginationClick = () => {

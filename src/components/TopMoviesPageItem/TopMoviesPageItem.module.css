@@ -53,7 +53,7 @@ span {
   opacity: 0;
 }
 
-.imageGalleryItem:hover .btnBox {
+.imageGalleryItem .btnBox {
   position: absolute;
   top: 85%;
   text-align: center;

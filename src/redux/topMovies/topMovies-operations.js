@@ -1,32 +1,29 @@
 import axios from "axios";
-import { createAsyncThunk } from "@reduxjs/toolkit";
-import { createAction } from "@reduxjs/toolkit";
+// import { createAsyncThunk } from "@reduxjs/toolkit";
+import {
+  getMoviesRequest,
+  getMoviesSuccess,
+  getMoviesError,
+} from "./topMovies-actions";
 
 const BASE_URL = "https://www.omdbapi.com/";
 const API_KEY = "a81b612c";
 
-let id;
+export const getTopMovies = (currentPosts) => async (dispatch) => {
+  console.log("currentPosts-operations", currentPosts);
+  dispatch(getMoviesRequest());
 
-const getTopMovies = createAsyncThunk(
-  "topMovies",
-  async ({ currentPosts }, thunkAPI) => {
-    let arr = [];
-    try {
-      for (let i = 0; i < currentPosts.length; i++) {
-        id = currentPosts[i];
-        const { data } = await axios.post(
-          `${BASE_URL}?&apikey=${API_KEY}&i=${id}&r=json`
-        );
-        arr.push(data);
-      }
-      return arr;
-    } catch (error) {
-      alert(new Error("Error"));
-      return thunkAPI.rejectWithValue();
+  let arrMovies = [];
+  try {
+    for (let i = 0; i < currentPosts.length; i++) {
+      let id = currentPosts[i];
+      const { data } = await axios.get(
+        `${BASE_URL}?&apikey=${API_KEY}&i=${id}&r=json`
+      );
+      arrMovies.push(data);
     }
+    dispatch(getMoviesSuccess(arrMovies));
+  } catch (error) {
+    dispatch(getMoviesError(error));
   }
-);
-
-export const deleteMovie = createAction("movie/delete");
-
-export default getTopMovies;
+};
