@@ -22,7 +22,6 @@ const HomePage = () => {
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = movies.slice(indexOfFirstPost, indexOfLastPost);
-  console.log("currentPosts", currentPosts);
 
   useEffect(() => {
     dispatch(getTopMovies(currentPosts));
@@ -45,7 +44,7 @@ const HomePage = () => {
           <SearchMoviesPage />
         ) : (
           <>
-            <TopMoviesPage />
+            <TopMoviesPage indexOfLastPost={indexOfLastPost} />
             <div className={style.pagination}>
               <Pagination
                 color="secondary"

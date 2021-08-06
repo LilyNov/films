@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { deleteTopMovie } from "../../redux/topMovies/topMovies-actions";
+
 import Modal from "../Modal/Modal";
 import style from "../TopMoviesPageItem/TopMoviesPageItem.module.css";
 
@@ -13,11 +14,8 @@ const TopMoviesPageItem = ({ movie }) => {
   };
 
   const onDeleteMovie = (id) => {
-    console.log("deleteTopMovie ID", id);
-
     dispatch(deleteTopMovie(id));
   };
-  console.log();
 
   return (
     <>
