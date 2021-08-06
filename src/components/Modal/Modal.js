@@ -46,9 +46,7 @@ const Modal = ({ movie, onClose }) => {
         <GrClose onClick={handleCloseModal} className={style.iconClose} />
         <img className={style.modalImg} src={Poster} alt={Title} />
         <div>
-          <p>
-            <span>Title:</span> {Title}
-          </p>
+          <p>{Title}</p>
           <p>
             <span> Year:</span> {Year}
           </p>

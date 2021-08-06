@@ -24,8 +24,6 @@ const topMoviesReducer = createSlice({
       state.isFetch = false;
     },
     [deleteMovie](state, { payload }) {
-      console.log("initialState", initialState);
-
       state.topMovies = state.topMovies.filter(({ id }) => id !== payload);
     },
   },
