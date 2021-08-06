@@ -4,7 +4,7 @@ import TopMoviesPageItem from "../TopMoviesPageItem/TopMoviesPageItem";
 import Loader from "../Loader/Loader";
 import style from "../TopMoviesPage/TopMoviesPage.module.css";
 
-const TopMoviesPage = () => {
+const TopMoviesPage = ({ indexOfLastPost }) => {
   const movies = useSelector(getAllTopMovies);
 
   return (
@@ -12,7 +12,11 @@ const TopMoviesPage = () => {
       {movies && (
         <ul className={style.itemList}>
           {movies.map((movie) => (
-            <TopMoviesPageItem key={movie.imdbID} movie={movie} />
+            <TopMoviesPageItem
+              key={movie.imdbID}
+              movie={movie}
+              indexOfLastPost={indexOfLastPost}
+            />
           ))}
         </ul>
       )}

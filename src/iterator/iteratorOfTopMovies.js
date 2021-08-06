@@ -5,18 +5,12 @@ export const iteratorOfTopMovies = (array, i) => {
 
   return () => {
     const value = array[index];
+    index++;
 
-    if (index < array.length) {
-      index++;
-    }
-
+    // if (index < array.length) {
+    //   index++;
+    // }
+    console.log("indexII", index);
     return value;
   };
 };
-
-// const nextMovie = iteratorOfTopMovies(
-//   arrayOfAllMovies,
-//   indexOfLastPost + nextMovieIndex
-// );
-// console.log(nextMovie());
-// console.log("nextMovieIndex", nextMovieIndex);

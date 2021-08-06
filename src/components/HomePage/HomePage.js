@@ -46,7 +46,7 @@ const HomePage = () => {
           <SearchMoviesPage />
         ) : (
           <>
-            <TopMoviesPage />
+            <TopMoviesPage indexOfLastPost={indexOfLastPost} />
             <div className={style.pagination}>
               <Pagination
                 color="secondary"
