@@ -15,7 +15,6 @@ const HomePage = () => {
   const dispatch = useDispatch();
   const moviesSearch = useSelector(getSerchMovies);
   const [movies] = useState(getMoviesId);
-  const [moviesOnPage] = useState(9);
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(10);
   const [loading, setLoading] = useState(false);
@@ -49,7 +48,7 @@ const HomePage = () => {
             <div className={style.pagination}>
               <Pagination
                 color="secondary"
-                count={Math.ceil(movies.length / moviesOnPage)}
+                count={Math.ceil(movies.length / postsPerPage)}
                 onChange={(_, value) => setCurrentPage(value)}
                 onClick={onPaginationClick}
               />

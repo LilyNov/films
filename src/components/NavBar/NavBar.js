@@ -20,7 +20,7 @@ export default function NavBar() {
       <Container maxWidth="lg">
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
-            IMDB
+            IMDB movies
           </Typography>
           <SearchMoviesApp />
         </Toolbar>
