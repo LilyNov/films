@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import getTopMovies from "./topMovies-operations";
+import { deleteMovie } from "../topMovies/topMovies-operations";
 
 const initialState = {
   topMovies: [],
@@ -21,6 +22,11 @@ const topMoviesReducer = createSlice({
     [getTopMovies.rejected](state, { payload }) {
       state.error = payload;
       state.isFetch = false;
+    },
+    [deleteMovie](state, { payload }) {
+      console.log("initialState", initialState);
+
+      state.topMovies = state.topMovies.filter(({ id }) => id !== payload);
     },
   },
 });

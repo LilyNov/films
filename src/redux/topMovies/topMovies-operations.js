@@ -1,5 +1,6 @@
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import { createAction } from "@reduxjs/toolkit";
 
 const BASE_URL = "http://www.omdbapi.com/";
 const API_KEY = "a81b612c";
@@ -25,5 +26,7 @@ const getTopMovies = createAsyncThunk(
     }
   }
 );
+
+export const deleteMovie = createAction("movie/delete");
 
 export default getTopMovies;

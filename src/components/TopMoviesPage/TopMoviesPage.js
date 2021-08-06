@@ -1,5 +1,4 @@
 import { useSelector } from "react-redux";
-import { v4 as uuidv4 } from "uuid";
 import { getTopMovies } from "../../redux/topMovies/topMovies-selectors";
 import TopMoviesPageItem from "../TopMoviesPageItem/TopMoviesPageItem";
 import Loader from "../Loader/Loader";
@@ -13,7 +12,7 @@ const TopMoviesPage = () => {
       {movies.length === 10 && (
         <ul className={style.itemList}>
           {movies.map((movie) => (
-            <TopMoviesPageItem key={uuidv4()} movie={movie} />
+            <TopMoviesPageItem key={movie.imdbID} movie={movie} />
           ))}
         </ul>
       )}
