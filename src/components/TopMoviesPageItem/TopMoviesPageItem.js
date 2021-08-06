@@ -10,15 +10,21 @@ const TopMoviesPageItem = ({ movie }) => {
   };
   return (
     <>
-      <li className={style.imageGalleryItem} onClick={toggleModal}>
+      <li className={style.imageGalleryItem}>
         <img
           src={movie.Poster}
           alt={movie.Title}
           className={style.imageGalleryItemImage}
         />
-        <div className={style.about}>
-          <p className={style.text}>{movie.Title}</p>
+        <div className={style.btnBox}>
+          <button className={style.button} onClick={toggleModal}>
+            Details
+          </button>
+          <button className={style.button} onClick={toggleModal}>
+            Delete
+          </button>
         </div>
+
         {showModal && <Modal onClose={toggleModal} movie={movie} />}
       </li>
     </>

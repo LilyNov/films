@@ -1,5 +1,6 @@
 import { createPortal } from "react-dom";
 import { useEffect } from "react";
+import { GrClose } from "react-icons/gr";
 import style from "../Modal/Modal.module.css";
 
 const modalRoot = document.querySelector("#modal-root");
@@ -42,7 +43,7 @@ const Modal = ({ movie, onClose }) => {
   return createPortal(
     <div className={style.overlay} onClick={handleCloseModal}>
       <div className={style.modal}>
-        <span onClick={handleCloseModal}>X</span>
+        <GrClose onClick={handleCloseModal} className={style.iconClose} />
         <img className={style.modalImg} src={Poster} alt={Title} />
         <div>
           <p>
