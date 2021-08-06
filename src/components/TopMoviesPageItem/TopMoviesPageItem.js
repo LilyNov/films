@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { deleteTopMovie } from "../../redux/topMovies/topMovies-actions";
-
+import { fetchOneMovie } from "../../redux/topMovies/topMovies-operations";
 import Modal from "../Modal/Modal";
 import style from "../TopMoviesPageItem/TopMoviesPageItem.module.css";
 
@@ -13,8 +13,10 @@ const TopMoviesPageItem = ({ movie }) => {
     setShowModal(!showModal);
   };
 
+  let idIm = "tt0102926";
   const onDeleteMovie = (id) => {
     dispatch(deleteTopMovie(id));
+    dispatch(fetchOneMovie(idIm));
   };
 
   return (
