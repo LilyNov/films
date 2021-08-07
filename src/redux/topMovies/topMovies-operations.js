@@ -16,6 +16,7 @@ export const getTopMovies = (currentPosts) => async (dispatch) => {
     for (let i = 0; i < currentPosts.length; i++) {
       const { data } = await getMoviesApi(currentPosts[i]);
       arrMovies.push(data);
+      console.log("data", data);
     }
     dispatch(getMoviesSuccess(arrMovies));
   } catch (error) {

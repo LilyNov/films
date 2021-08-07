@@ -19,28 +19,21 @@ const HomePage = () => {
   const [movies] = useState(getMoviesId);
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(10);
-  const [loading, setLoading] = useState(false);
 
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = movies.slice(indexOfFirstPost, indexOfLastPost);
+  console.log("currentPosts", currentPosts);
 
   useEffect(() => {
+    if (!currentPosts) {
+      return;
+    }
     dispatch(getTopMovies(currentPosts));
-  }, [currentPosts, dispatch]);
-
-  const onPaginationClick = () => {
-    setLoading(true);
-
-    setTimeout(() => {
-      setLoading(false);
-    }, 2200);
-  };
+  }, [currentPosts]);
 
   return (
     <>
-      {" "}
-      {loading && <Loader />}
       <Container maxWidth="lg" className={style.container}>
         {moviesSearch ? (
           <SearchMoviesPage />
@@ -52,7 +45,6 @@ const HomePage = () => {
                 color="secondary"
                 count={Math.ceil(movies.length / postsPerPage)}
                 onChange={(_, value) => setCurrentPage(value)}
-                onClick={onPaginationClick}
               />
             </div>
           </>

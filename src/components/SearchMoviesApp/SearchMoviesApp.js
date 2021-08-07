@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import "react-toastify/dist/ReactToastify.css";
 import style from "./SearchMoviesApp.module.css";
@@ -8,9 +8,14 @@ const SearchMoviesApp = () => {
   const [movie, setMovie] = useState("");
   const dispatch = useDispatch();
 
-  setTimeout(() => {
-    dispatch(SearchMovies({ movie }));
-  }, 1500);
+  useEffect(() => {
+    if (!movie) {
+      return;
+    }
+    setTimeout(() => {
+      dispatch(SearchMovies({ movie }));
+    }, 1500);
+  }, [movie]);
 
   const handleSubmit = (e) => {
     setMovie(e.currentTarget.value.toLowerCase());

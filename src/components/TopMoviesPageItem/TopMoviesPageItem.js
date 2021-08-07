@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { deleteTopMovie } from "../../redux/topMovies/topMovies-actions";
 import { fetchOneMovie } from "../../redux/topMovies/topMovies-operations";
@@ -11,15 +11,15 @@ const TopMoviesPageItem = ({ movie, indexOfLastPost }) => {
   const [showModal, setShowModal] = useState(false);
   const dispatch = useDispatch();
 
-  const nextMovie = iteratorOfTopMovies(arrayOfAllMovies, indexOfLastPost);
-
   const toggleModal = () => {
     setShowModal(!showModal);
   };
 
   const onDeleteMovie = (id) => {
     dispatch(deleteTopMovie(id));
-    dispatch(fetchOneMovie(nextMovie()));
+
+    const nextMovie = iteratorOfTopMovies(arrayOfAllMovies, indexOfLastPost);
+    dispatch(fetchOneMovie(nextMovie("tt0054215")));
     console.log(nextMovie());
   };
 

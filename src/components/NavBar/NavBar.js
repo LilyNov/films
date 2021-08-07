@@ -2,6 +2,7 @@ import React from "react";
 import { AppBar, Toolbar, Container, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import SearchMoviesApp from "../SearchMoviesApp/SearchMoviesApp";
+import style from "../NavBar/NavBar.module.css";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -16,15 +17,15 @@ export default function NavBar() {
   const classes = useStyles();
 
   return (
-    <AppBar position="fixed">
-      <Container maxWidth="lg">
-        <Toolbar>
-          <Typography variant="h6" className={classes.title}>
-            IMDB movies
-          </Typography>
-          <SearchMoviesApp />
-        </Toolbar>
-      </Container>
-    </AppBar>
+    <header className={style.header}>
+      <div className={style.headerBackground}>
+        <div className={style.container}>
+          <p className={style.logo}>IMDB movies</p>
+          <div className={style.homeSearch}>
+            <SearchMoviesApp />
+          </div>
+        </div>
+      </div>
+    </header>
   );
 }
