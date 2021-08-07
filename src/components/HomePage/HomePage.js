@@ -20,14 +20,12 @@ const HomePage = () => {
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = movies.slice(indexOfFirstPost, indexOfLastPost);
-  console.log("currentPosts", currentPosts);
 
   useEffect(() => {
     if (!currentPosts) {
       return;
     }
     dispatch(getTopMovies(currentPosts));
-    console.log("запрос");
   }, [currentPosts]);
 
   return (

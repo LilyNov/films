@@ -8,8 +8,6 @@ import style from "../TopMoviesPage/TopMoviesPage.module.css";
 const TopMoviesPage = ({ indexOfLastPost }) => {
   const movies = useSelector(getAllTopMovies);
   const isLoadingForMovies = useSelector(isLoading);
-  console.log("isLoading", isLoadingForMovies);
-  console.log("movies", movies);
 
   return (
     <>
