@@ -27,6 +27,9 @@
 
 .textError {
   position: absolute;
-  top: 60%;
+  margin-left: -25px;
+  font-size: 15px;
+  color: #ff6b08;
+  top: 33%;
   left: 80%;
 }
