@@ -14,7 +14,6 @@ const TopMoviesPage = ({ indexOfLastPost }) => {
   return (
     <>
       {isLoadingForMovies && <Loader />}
-
       {movies && (
         <ul className={style.itemList}>
           {movies.map((movie) => (

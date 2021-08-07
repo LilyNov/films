@@ -1,3 +1,7 @@
+.container {
+  min-height: calc(100vh - 30px);
+}
+
 .pagination {
   margin-left: 400px;
   padding-bottom: 30px;

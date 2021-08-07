@@ -17,10 +17,7 @@ const TopMoviesPageItem = ({ movie, indexOfLastPost }) => {
 
   const onDeleteMovie = (id) => {
     dispatch(deleteTopMovie(id));
-
-    const nextMovie = iteratorOfTopMovies(arrayOfAllMovies, indexOfLastPost);
-    dispatch(fetchOneMovie(nextMovie("tt0054215")));
-    console.log(nextMovie());
+    dispatch(fetchOneMovie("tt0054215"));
   };
 
   return (
