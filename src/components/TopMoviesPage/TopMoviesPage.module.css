@@ -11,3 +11,8 @@
   margin-left: auto;
   margin-right: auto;
 }
+
+.pagination {
+  margin-left: 400px;
+  padding-bottom: 30px;
+}

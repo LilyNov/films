@@ -1,5 +1,7 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
+import { createAsyncThunk, createAction } from "@reduxjs/toolkit";
 import { searchMovieApi } from "../../service/movies-api";
+
+export const queryFromInput = createAction("movie/queryFromInput");
 
 const searchMovies = createAsyncThunk("movie", async ({ movie }, thunkAPI) => {
   try {
