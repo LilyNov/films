@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { deleteTopMovie } from "../../redux/topMovies/topMovies-actions";
 import { fetchOneMovie } from "../../redux/topMovies/topMovies-operations";
@@ -38,7 +38,7 @@ const TopMoviesPageItem = ({ movie, indexOfLastPost }) => {
               onDeleteMovie(movie.imdbID);
             }}
           >
-            Delete
+            Remove
           </button>
         </div>
 

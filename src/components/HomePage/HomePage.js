@@ -1,7 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-// import Pagination from "@material-ui/lab/Pagination";
 import { Container } from "@material-ui/core";
 import { getQueryOfMovies } from "../../redux/movies/movies-selectors";
 import getMoviesId from "../../imdb-top250";
@@ -12,13 +11,11 @@ import style from "../HomePage/HomePage.module.css";
 
 const HomePage = () => {
   const dispatch = useDispatch();
-  // const moviesSearch = useSelector(getSerchMovies);
   const querySearch = useSelector(getQueryOfMovies);
-
   const [movies] = useState(getMoviesId);
   const [currentPage, setCurrentPage] = useState(1);
-  const postsPerPage = 10;
 
+  const postsPerPage = 10;
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = movies.slice(indexOfFirstPost, indexOfLastPost);

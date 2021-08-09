@@ -15,7 +15,6 @@ const topMovies = createReducer([], {
     return state.filter(({ imdbID }) => imdbID !== payload);
   },
   [fetchOneMovieSuccess]: (state, { payload }) => {
-    console.log("fetchOneMovieSuccess", payload);
     return [...state, payload];
   },
 });

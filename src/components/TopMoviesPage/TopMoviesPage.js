@@ -27,7 +27,6 @@ const TopMoviesPage = ({
           />
         ))}
       </ul>
-
       <div className={style.pagination}>
         <Pagination
           count={Math.ceil(arrOfTopMovies.length / postsPerPage)}

@@ -4,7 +4,7 @@ import HomePage from "./components/HomePage/HomePage";
 
 export default function App() {
   return (
-    <Container>
+    <Container style={{ position: "relative", minHeight: "100%" }}>
       <NavBar />
       <HomePage />
     </Container>
