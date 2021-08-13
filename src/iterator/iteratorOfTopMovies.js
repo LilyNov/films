@@ -1,5 +1,5 @@
-export const iteratorOfTopMovies = (array, i) => {
-  let index = 0 + i;
+export const iteratorOfTopMovies = (array, i, indexOfLastPost) => {
+  let index = 0 + i + indexOfLastPost;
 
   return () => {
     const value = array[index];

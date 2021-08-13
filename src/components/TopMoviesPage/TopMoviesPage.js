@@ -20,7 +20,12 @@ const TopMoviesPage = ({
       {isLoadingForMovies && <Loader />}
       <ul className={style.itemList}>
         {movies?.map((movie, index) => (
-          <TopMoviesPageItem key={index} movie={movie} index={index} />
+          <TopMoviesPageItem
+            key={index}
+            movie={movie}
+            index={index}
+            indexOfLastPost={indexOfLastPost}
+          />
         ))}
       </ul>
       <div className={style.pagination}>
