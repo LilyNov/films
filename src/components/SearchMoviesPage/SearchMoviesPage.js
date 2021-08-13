@@ -26,7 +26,9 @@ const SearchMoviesPage = () => {
           ))}
         </ul>
       ) : (
-        <p>Not found any movies. Try to change query of search</p>
+        !isLoadingForMovies && (
+          <p>Not found any movies. Try to change query of search</p>
+        )
       )}
     </>
   );

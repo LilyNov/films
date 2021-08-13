@@ -19,12 +19,8 @@ const TopMoviesPage = ({
     <>
       {isLoadingForMovies && <Loader />}
       <ul className={style.itemList}>
-        {movies?.map((movie) => (
-          <TopMoviesPageItem
-            key={movie.imdbID}
-            movie={movie}
-            indexOfLastPost={indexOfLastPost}
-          />
+        {movies?.map((movie, index) => (
+          <TopMoviesPageItem key={index} movie={movie} index={index} />
         ))}
       </ul>
       <div className={style.pagination}>

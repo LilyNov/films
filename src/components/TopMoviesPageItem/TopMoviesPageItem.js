@@ -7,7 +7,7 @@ import { iteratorOfTopMovies } from "../../iterator/iteratorOfTopMovies";
 import arrayOfAllMovies from "../../imdb-top250";
 import style from "../TopMoviesPageItem/TopMoviesPageItem.module.css";
 
-const TopMoviesPageItem = ({ movie, indexOfLastPost }) => {
+const TopMoviesPageItem = ({ movie, index }) => {
   const [showModal, setShowModal] = useState(false);
   const dispatch = useDispatch();
 
@@ -15,9 +15,10 @@ const TopMoviesPageItem = ({ movie, indexOfLastPost }) => {
     setShowModal(!showModal);
   };
 
-  const onDeleteMovie = (id) => {
+  const onDeleteMovie = (indexEl, id) => {
+    const next = iteratorOfTopMovies(arrayOfAllMovies, indexEl);
     dispatch(deleteTopMovie(id));
-    dispatch(fetchOneMovie("tt0054215"));
+    dispatch(fetchOneMovie(next()));
   };
 
   return (
@@ -35,7 +36,7 @@ const TopMoviesPageItem = ({ movie, indexOfLastPost }) => {
           <button
             className={style.button}
             onClick={() => {
-              onDeleteMovie(movie.imdbID);
+              onDeleteMovie(index, movie.imdbID);
             }}
           >
             Remove
